@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+        
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Paint Brush</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .video-container {
+        position: relative;
+        width: 709px;
+        height: 500px;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        
+        }
+        .video-container img {
+            width: 100%;
+            height: 95%;
+        }
+        button {
+            margin-top: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Virtual Paint Brush</h1>
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" alt="Webcam Feed">
+        </div>
+        <form action="{{ url_for('restart') }}" method="POST">
+            <button type="submit">Restart</button>
+        </form>
+        <p class="footer">Powered by Flask, OpenCV, and Mediapipe</p>
+        <p class="footer">© PraffulBisht</p>
+    </div>
+</body>
+</html>
